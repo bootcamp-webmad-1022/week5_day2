@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Detalles de {{book.title}}</h1>
+    <hr>
+    <p>{{book.description}}</p>
+    <p>Autor/a: {{book.author}}</p>
+
+    <hr>
+
+    <a href="/libros/listado" class="btn btn-dark">Volver al listado</a>
+
+    {{#if isAdmin}}
+    <a href="/libros/editar/{{_id}}" class="btn btn-warning">Editar libro</a>
+    <form action="/libros/eliminar/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="Eliminar libro" class="btn btn-danger">
+    </form>
+    {{/if}}
+
+    {{#if isEditor}}
+    <a href="/libros/editar/{{_id}}" class="btn btn-warning">Editar libro</a>
+    {{/if}}
+
+</div>
